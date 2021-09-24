@@ -1,0 +1,27 @@
+type Phone
+{
+    id: ID!,
+    brandName: String,
+    modelName: String,
+    imei: String
+}
+
+input PhoneDTO
+{
+    brandName: String,
+    modelName: String
+}
+
+type Query
+{
+    getAll:[Phone]
+    getByBrandName(brandName: String):[Phone]
+    getById(id: ID): Phone
+}
+
+type Mutation
+{
+    addPhone(phoneDTO: PhoneDTO):Phone
+    updatePhone(phoneDTO: PhoneDTO, id: ID):Phone
+    removePhone(id: ID):Phone
+}
